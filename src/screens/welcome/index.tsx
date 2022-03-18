@@ -94,7 +94,7 @@ export default function UnauthenticatedApp() {
 
       {inputDisplay ? (
         <>
-          <Link href="/home/defi" style={{ marginTop: "700px" }}>
+          <Link href="/defi" style={{ marginTop: "700px" }}>
             Defi Journal
           </Link>
           <Input
