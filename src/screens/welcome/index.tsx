@@ -121,7 +121,7 @@ export default function UnauthenticatedApp() {
           style={{ marginTop: "800px", fontSize: 60, fontFamily: "MyFont" }}
         >
           {" "}
-          Welcome&nbsp; Replay&nbsp;! &emsp; Click ⤴{" "}
+          Welcome&nbsp;! &emsp; Click ⤴{" "}
         </Title>
       )}
 
