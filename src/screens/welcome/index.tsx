@@ -1,12 +1,12 @@
 import React, { useState, useEffect, useCallback, Key } from "react";
 import entry_background from "assets/entry_background.png";
 import styled from "@emotion/styled";
-import { Button, Typography, Input, List } from "antd";
+import { Button, Typography, Input, Row, Col, List } from "antd";
 // import VirtualList from "rc-virtual-list";
 
 import { keyframes } from "@emotion/react";
 
-import { useMount } from "utils";
+// import { useMount } from "utils";
 
 const { Title, Link } = Typography;
 
@@ -43,7 +43,7 @@ export default function UnauthenticatedApp() {
       setTimeout(() => {
         setInputDisplay(true);
         // setShowSessionList(true);
-      }, delay * 650);
+      }, delay * 800);
     } else if (entryFlg === EnterStatus.Recover) {
       setInputDisplay(false);
       // setShowSessionList(false);
@@ -94,9 +94,39 @@ export default function UnauthenticatedApp() {
 
       {inputDisplay ? (
         <>
-          <Link href="/defi" style={{ marginTop: "700px" }}>
-            Defi Journal
-          </Link>
+          <Row
+            gutter={2}
+            style={{ width: "50vh", marginTop: "55vh", fontFamily: "MyFont" }}
+          >
+            <Col span={6}>
+              <Link href="/defi">
+                <Title level={3} underline>
+                  Defi Journal
+                </Title>
+              </Link>
+            </Col>
+            <Col span={6}>
+              <Link href="/post">
+                <Title level={3} underline>
+                  Post
+                </Title>
+              </Link>
+            </Col>
+            <Col span={6}>
+              <Link href="/life">
+                <Title level={3} underline>
+                  Life
+                </Title>
+              </Link>
+            </Col>
+            <Col span={6}>
+              <Link href="/about">
+                <Title level={3} underline>
+                  About
+                </Title>
+              </Link>
+            </Col>
+          </Row>
           <Input
             placeholder="Search"
             addonAfter={
@@ -113,12 +143,12 @@ export default function UnauthenticatedApp() {
               </Button>
             }
             size="large"
-            style={{ width: "35%", marginTop: "20px" }}
+            style={{ width: "35%", marginTop: "4vh" }}
           />
         </>
       ) : (
         <Title
-          style={{ marginTop: "800px", fontSize: 60, fontFamily: "MyFont" }}
+          style={{ marginTop: "65vh", fontSize: 60, fontFamily: "MyFont" }}
         >
           {" "}
           Welcome&nbsp;! &emsp; Click ⤴{" "}
@@ -155,14 +185,14 @@ const Container = styled.div`
 
 const HostBackground = styled.div`
   position: absolute;
-  margin-top: 250px;
+  margin-top: 20vh;
   border: 4px solid #554236;
   border-radius: 8px;
-  width: 1000px;
-  height: 500px;
+  width: 45%;
+  height: 40%;
   background-repeat: no-repeat;
   background-position: 50% 0px;
-  background-size: 1000px 600px;
+  background-size: 100% 100%;
   background-image: url(${entry_background});
   box-shadow: 0 1px 1px hsl(0deg 0% 0% / 0.075),
     0 2px 2px hsl(0deg 0% 0% / 0.075), 0 4px 4px hsl(0deg 0% 0% / 0.075),
@@ -174,7 +204,7 @@ const bounce = keyframes`
       transform: translate(0, 0);
   }
   to {
-    transform: translate(0,-100px);
+    transform: translate(0,-15vh);
   }
 `;
 
@@ -184,7 +214,7 @@ const HostEntryContainer = styled(HostBackground)`
 
 const bounceRecover = keyframes`
   from {
-      transform: translate(0, -100px);
+      transform: translate(0, -15vh);
   }
   to {
     transform: translate(0, 0);
