@@ -4,11 +4,16 @@ import styled from "@emotion/styled";
 import { Button, Typography, Input, Row, Col, List } from "antd";
 // import VirtualList from "rc-virtual-list";
 
+import { KeyOutlined } from "@ant-design/icons";
+
 import { keyframes } from "@emotion/react";
 
 // import { useMount } from "utils";
 
-const { Title, Link } = Typography;
+const { Title, Link, Paragraph } = Typography;
+
+const ETH_ADDRESS = "0xb15c6d475aEbEFA2506A28969661850334190b1F";
+const ENS = "finjj.eth";
 
 enum EnterStatus {
   Static = 1,
@@ -94,9 +99,16 @@ export default function UnauthenticatedApp() {
 
       {inputDisplay ? (
         <>
+          <Paragraph
+            copyable={{ text: ETH_ADDRESS }}
+            style={{ marginTop: "55vh" }}
+          >
+            <KeyOutlined />
+            &nbsp;{`${ENS} | ${ETH_ADDRESS}`}
+          </Paragraph>
           <Row
             gutter={2}
-            style={{ width: "50vh", marginTop: "60vh", fontFamily: "MyFont" }}
+            style={{ width: "50vh", marginTop: "2vh", fontFamily: "MyFont" }}
           >
             <Col span={6}>
               <Link href="/defi">
