@@ -2,6 +2,7 @@
 git pull
 yarn install
 yarn build
-mv build ~/f
+rm -rf ~/f
+mv ./build ~/f
 cd ~/draft/f/f-defi/
 ./deploy.sh
