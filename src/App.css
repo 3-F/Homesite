@@ -1,3 +1,5 @@
+@import "~antd/dist/antd.css";
+
 .App {
   text-align: center;
 }
@@ -35,4 +37,9 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+@font-face {
+  font-family: "MyFont";
+  src: local("MyFont"), url(./assets/fonts/ClaireHandBold.otf) format("woff");
 }
