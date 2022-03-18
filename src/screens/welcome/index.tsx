@@ -8,7 +8,7 @@ import { keyframes } from "@emotion/react";
 
 import { useMount } from "utils";
 
-const { Title } = Typography;
+const { Title, Link } = Typography;
 
 enum EnterStatus {
   Static = 1,
@@ -93,20 +93,29 @@ export default function UnauthenticatedApp() {
       )}
 
       {inputDisplay ? (
-        <Input
-          placeholder="Search"
-          addonAfter={
-            <Button
-              style={{ color: "black", fontSize: "20px", fontFamily: "MyFont" }}
-              type="link"
-              onClick={() => {}}
-            >
-              Search
-            </Button>
-          }
-          size="large"
-          style={{ width: "35%", marginTop: "700px" }}
-        />
+        <>
+          <Link href="/home/defi" style={{ marginTop: "700px" }}>
+            Defi Journal
+          </Link>
+          <Input
+            placeholder="Search"
+            addonAfter={
+              <Button
+                style={{
+                  color: "black",
+                  fontSize: "20px",
+                  fontFamily: "MyFont",
+                }}
+                type="link"
+                onClick={() => {}}
+              >
+                Search
+              </Button>
+            }
+            size="large"
+            style={{ width: "35%", marginTop: "20px" }}
+          />
+        </>
       ) : (
         <Title
           style={{ marginTop: "800px", fontSize: 60, fontFamily: "MyFont" }}
