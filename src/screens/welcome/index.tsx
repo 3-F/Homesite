@@ -96,7 +96,7 @@ export default function UnauthenticatedApp() {
         <>
           <Row
             gutter={2}
-            style={{ width: "50vh", marginTop: "55vh", fontFamily: "MyFont" }}
+            style={{ width: "50vh", marginTop: "60vh", fontFamily: "MyFont" }}
           >
             <Col span={6}>
               <Link href="/defi">
@@ -185,11 +185,11 @@ const Container = styled.div`
 
 const HostBackground = styled.div`
   position: absolute;
-  margin-top: 20vh;
+  margin-top: 15vh;
   border: 4px solid #554236;
   border-radius: 8px;
-  width: 45%;
-  height: 40%;
+  width: 40%;
+  height: 45%;
   background-repeat: no-repeat;
   background-position: 50% 0px;
   background-size: 100% 100%;
@@ -204,7 +204,7 @@ const bounce = keyframes`
       transform: translate(0, 0);
   }
   to {
-    transform: translate(0,-15vh);
+    transform: translate(0,-10vh);
   }
 `;
 
@@ -214,7 +214,7 @@ const HostEntryContainer = styled(HostBackground)`
 
 const bounceRecover = keyframes`
   from {
-      transform: translate(0, -15vh);
+      transform: translate(0, -10vh);
   }
   to {
     transform: translate(0, 0);
