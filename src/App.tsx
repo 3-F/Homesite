@@ -1,7 +1,7 @@
 import React from "react";
 import "./App.css";
 
-import UnauthenticatedApp from "unauthenticated-app";
+import UnauthenticatedApp from "screens/welcome";
 
 function App() {
   return (

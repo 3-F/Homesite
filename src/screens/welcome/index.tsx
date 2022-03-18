@@ -2,7 +2,7 @@ import React, { useState, useEffect, useCallback, Key } from "react";
 import entry_background from "assets/entry_background.png";
 import styled from "@emotion/styled";
 import { Button, Typography, Input, List } from "antd";
-import VirtualList from "rc-virtual-list";
+// import VirtualList from "rc-virtual-list";
 
 import { keyframes } from "@emotion/react";
 
@@ -16,63 +16,63 @@ enum EnterStatus {
   Recover,
 }
 
-const delay = 2;
-const ContainerHeight = 400;
+const delay = 1;
+// const ContainerHeight = 400;
 
-interface SessionType {
-  id: String;
-  block: number;
-  index: number;
-}
+// interface SessionType {
+//   id: String;
+//   block: number;
+//   index: number;
+// }
 
 export default function UnauthenticatedApp() {
   const [entryFlg, setEntryFlg] = useState<EnterStatus>(EnterStatus.Static);
   const [inputDisplay, setInputDisplay] = useState<Boolean>(false);
-  const [sessions, setSessions] = useState<SessionType[]>([]);
-  const [showSessionList, setShowSessionList] = useState<Boolean>(false);
+  // const [sessions, setSessions] = useState<SessionType[]>([]);
+  // const [showSessionList, setShowSessionList] = useState<Boolean>(false);
 
-  useMount(
-    useCallback(() => {
-      appendData();
-    }, [])
-  );
+  // useMount(
+  //   useCallback(() => {
+  //     appendData();
+  //   }, [])
+  // );
 
   // TODO: Add Debounce for onClick
   useEffect(() => {
     if (entryFlg === EnterStatus.Enter) {
       setTimeout(() => {
         setInputDisplay(true);
-        setShowSessionList(true);
-      }, delay * 350);
+        // setShowSessionList(true);
+      }, delay * 650);
     } else if (entryFlg === EnterStatus.Recover) {
       setInputDisplay(false);
-      setShowSessionList(false);
+      // setShowSessionList(false);
     }
   }, [entryFlg]);
 
-  const appendData = () => {
-    fetch(`/archive/list`, {
-      method: "GET",
-      headers: {
-        Accept: "application/json",
-      },
-    })
-      .then((res) => res.json())
-      .then((body) => {
-        let session_list = [];
-        for (let key in body) {
-          let item: SessionType = body[key];
-          session_list.push(item);
-        }
-        setSessions(session_list);
-      });
-  };
+  // const appendData = () => {
+  // fetch(`/archive/list`, {
+  //   method: "GET",
+  //   headers: {
+  //     Accept: "application/json",
+  //   },
+  // })
+  //   .then((res) => res.json())
+  //   .then((body) => {
+  //     let session_list = [];
+  //     for (let key in body) {
+  //       let item: SessionType = body[key];
+  //       session_list.push(item);
+  //     }
+  //     setSessions(session_list);
+  //   });
+  // };
 
-  const onScroll = (e: any) => {
-    if (e.target.scrollHeight - e.target.scrollTop === ContainerHeight) {
-      appendData();
-    }
-  };
+  // const onScroll = (e: any) => {
+  //   if (e.target.scrollHeight - e.target.scrollTop === ContainerHeight) {
+  //     appendData();
+  //   }
+  // };
 
   return (
     <Container>
@@ -94,16 +94,14 @@ export default function UnauthenticatedApp() {
 
       {inputDisplay ? (
         <Input
-          placeholder="input your session id"
+          placeholder="Search"
           addonAfter={
             <Button
               style={{ color: "black", fontSize: "20px", fontFamily: "MyFont" }}
               type="link"
-              onClick={() => {
-                console.log(sessions);
-              }}
+              onClick={() => {}}
             >
-              Enter
+              Search
             </Button>
           }
           size="large"
@@ -118,7 +116,7 @@ export default function UnauthenticatedApp() {
         </Title>
       )}
 
-      {showSessionList && (
+      {/* {showSessionList && (
         <List style={{ marginTop: "50px", width: "50%" }}>
           <VirtualList
             data={sessions}
@@ -134,7 +132,7 @@ export default function UnauthenticatedApp() {
             )}
           </VirtualList>
         </List>
-      )}
+      )} */}
     </Container>
   );
 }
